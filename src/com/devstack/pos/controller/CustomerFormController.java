@@ -28,8 +28,8 @@ public class CustomerFormController {
     public JFXTextField txtName;
     public JFXButton btnSaveCustomer;
     public TextField txtSearchHere;
-    public TableColumn colId;
     public TableView<CustomerTm> tbl;
+    public TableColumn colId;
     public TableColumn colEmail;
 //    public TableColumn colAddress;
     public TableColumn colContact;
@@ -38,6 +38,8 @@ public class CustomerFormController {
     public TableColumn colName;
 
     private String searchText="";
+
+
     public void initialize() throws SQLException, ClassNotFoundException {  /* initialize method is inbuilt method*/
         /*we use this to load the input data to system before loading to the table*/
         colId.setCellValueFactory(new PropertyValueFactory<>("id"));
@@ -117,7 +119,8 @@ public class CustomerFormController {
 
                 if (btnSaveCustomer.getText().equals("Save Customer")){
                     if (new DatabaseAccessCode().createCustomer(
-                            txtEmail.getText(),txtName.getText(),txtContact.getText(),Double.parseDouble(txtSalary.getText())
+                            txtEmail.getText(),txtName.getText(),
+                            txtContact.getText(),Double.parseDouble(txtSalary.getText())
                     )
                     ){
                         new Alert(Alert.AlertType.CONFIRMATION,"Customer Saved").show();
@@ -130,15 +133,16 @@ public class CustomerFormController {
 
                 }else {
                     if (new DatabaseAccessCode().updateCustomer(
-                            txtEmail.getText(),txtName.getText(),txtContact.getText(),Double.parseDouble(txtSalary.getText())
+                            txtEmail.getText(),txtName.getText(),
+                            txtContact.getText(),Double.parseDouble(txtSalary.getText())
                     )
                     ){
-                        new Alert(Alert.AlertType.CONFIRMATION,"Customer Updates").show();
+                        new Alert(Alert.AlertType.CONFIRMATION,"Customer Updated").show();
 
                         clearFields();
                         loadAllCustomers(searchText);
                         txtEmail.setEditable(true);
-                        btnSaveCustomer.setText("Save Customer");
+                        btnSaveCustomer.setText("Save customer");
                     }else{
                         new Alert(Alert.AlertType.WARNING,"Try Again").show();
                     }

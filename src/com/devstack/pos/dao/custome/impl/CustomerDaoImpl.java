@@ -128,7 +128,7 @@ public class CustomerDaoImpl implements CustomerDao {
         preparedStatement.setString(2, customer.getContact());
         preparedStatement.setDouble(3, customer.getSalary());
         preparedStatement.setString(4,customer.getEmail());*/
-        return CrudUtil.execute("UPDATE INTO customer VALUES (?,?,?,?)", /*preparedStatement.executeUpdate()>0*/
+        return CrudUtil.execute("UPDATE customer SET name=?, contact=?, salary=? WHERE email=?", /*preparedStatement.executeUpdate()>0*/
                  customer.getName(),customer.getContact(),customer.getSalary(),customer.getEmail());
     }
 
@@ -138,7 +138,7 @@ public class CustomerDaoImpl implements CustomerDao {
         PreparedStatement preparedStatement = DbConnection.getInstance().getConnection().prepareStatement(sql);
         preparedStatement.setString(1,email);*/
 
-        return /*preparedStatement.executeUpdate()>0;*/ CrudUtil.execute("DELETE FROM customer WHERE email=?");
+        return /*preparedStatement.executeUpdate()>0;*/ CrudUtil.execute("DELETE FROM customer WHERE email=?",email);
     }
 
     @Override

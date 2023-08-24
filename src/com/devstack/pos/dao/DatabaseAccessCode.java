@@ -97,7 +97,7 @@ public class DatabaseAccessCode {
         return preparedStatement.executeUpdate()>0;*/
     }
     public  CustomerDto findCustomer(String email) throws SQLException, ClassNotFoundException {
-  /*      String sql = "UPDATE customer SET name=?,contact=?,salary=? WHERE email=?";
+  /*      String sql = "SELECT * FROM customer  WHERE email=?";
         PreparedStatement preparedStatement = DbConnection.getInstance().getConnection().prepareStatement(sql);
         preparedStatement.setString(1,email);
 
