@@ -47,11 +47,6 @@ public class DatabaseAccessCode {
     }
 
     public  UserDto findUser(String email) throws ClassNotFoundException, SQLException {
-
-      /* String sql = "SELECT  * FROM user WHERE email=?";
-        PreparedStatement preparedStatement = DbConnection.getInstance().getConnection().prepareStatement(sql);*//* applying singleton to prevent creating more than ine connection *//*
-        preparedStatement.setString(1,email);
-*/
         User user = userDao.find(email);
         if (user != null){
             return  new UserDto(
@@ -60,6 +55,12 @@ public class DatabaseAccessCode {
             );
         }
         return null;
+
+      /* String sql = "SELECT  * FROM user WHERE email=?";
+        PreparedStatement preparedStatement = DbConnection.getInstance().getConnection().prepareStatement(sql);*//* applying singleton to prevent creating more than ine connection *//*
+        preparedStatement.setString(1,email);
+*/
+
     }
 
     /*-----------user management------------*/
