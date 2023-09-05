@@ -67,9 +67,9 @@ public class ProductDaoImpl implements ProductDao {
 /* above code is commented after implementing CrudDao,to prevent boiler plate */
     @Override
     public int getLastProductId() throws SQLException, ClassNotFoundException {
-        String sql = "SELECT code FROM product ORDER BY code DESC";
-        PreparedStatement preparedStatement = DbConnection.getInstance().getConnection().prepareStatement(sql);
-        ResultSet resultSet = preparedStatement.executeQuery(sql);
+        /*String sql = "SELECT code FROM product ORDER BY code DESC";
+        PreparedStatement preparedStatement = DbConnection.getInstance().getConnection().prepareStatement(sql);*/
+        ResultSet resultSet = CrudUtil.execute("SELECT code FROM product ORDER BY code DESC LIMIT 1"); /*preparedStatement.executeQuery(sql);*/
 
         if (resultSet.next()){
             return resultSet.getInt(1)+1;

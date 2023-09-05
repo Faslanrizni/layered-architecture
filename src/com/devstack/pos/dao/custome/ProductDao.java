@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 public interface ProductDao extends CrudDao<Product, Integer> {
-   /* public boolean saveProduct(Product product) throws SQLException, ClassNotFoundException;
+    /* public boolean saveProduct(Product product) throws SQLException, ClassNotFoundException;
     public boolean updateProduct(Product product) throws SQLException, ClassNotFoundException;
     public boolean deleteProduct(int code) throws SQLException, ClassNotFoundException;
     public Product findProduct(int code) throws SQLException, ClassNotFoundException;

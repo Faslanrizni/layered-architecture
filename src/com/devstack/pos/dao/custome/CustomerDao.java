@@ -21,3 +21,4 @@ public interface CustomerDao extends CrudDao<Customer,String> {
 public List<Customer> searchCustomer(String searchText) throws SQLException, ClassNotFoundException;
 }
 
+

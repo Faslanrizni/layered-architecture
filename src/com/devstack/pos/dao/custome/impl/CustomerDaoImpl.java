@@ -105,7 +105,6 @@ public class CustomerDaoImpl implements CustomerDao {
         }
         return dtos;
     }
-
     @Override
     public boolean save(Customer customer) throws SQLException, ClassNotFoundException {
 /*        String sql = "INSERT INTO customer VALUES (?,?,?,?)";
